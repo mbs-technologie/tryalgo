@@ -17,33 +17,40 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Welcome to tryalgo’s documentation!" href="index.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+    <link rel="next" title="Gallery of examples" href="auto_examples/index.html" />
+    <link rel="prev" title="Quick start" href="quickstart.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -85,6 +92,8 @@
             
             
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Content of the library</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-algorithms-and-data-structures">Basic algorithms and data structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#strings">Strings</a></li>
@@ -104,6 +113,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Gallery of examples</a></li>
 </ul>
 
             
@@ -187,7 +197,7 @@
 <p>A word x is an <a class="reference external" href="https://en.wikipedia.org/wiki/Anagram">anagram</a> of a word y, if the letters of x can be permuted to form y.  In <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.anagrams">anagrams</a> we show how to detect all anagrams among a given list of words.</p>
 <p>The generation of mobile phone which existed before the smart phones had the possibility to type text messages with the keys 2 to 9, using a letter to digit mapping printed on the keys.  The phone predicted which was the most likely word that the user wants to type using a frequency augmented dictionary of words.  In <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.predictive_text">predictive_text</a> we show how this can be done efficiently.</p>
 <p>An elegant but not so well known algorithm by Manacher permits to detect all palindromes which are substrings of a given string, see <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.manacher">manacher</a>.</p>
-<p>A well studied problems on strings, is the problem of finding a searching a string t inside a string s.  This is generally solved using the algorithm by Knuth-Morris-Pratt.  In addition to <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.knuth_morris_pratt">knuth_morris_pratt</a>  we show in <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.knuth_morris_pratt_border">knuth_morris_pratt_border</a> how to compute the <a class="reference external" href="http://algorithmsforcontests.blogspot.fr/2012/08/borders-of-string.html">longest border</a> for each prefix of a  given string w.  An application is to compute for a string x the largest power k such that there is a string y, and x is the result of concatenating k copies of y.</p>
+<p>A well studied problems on strings, is the problem of finding a searching a string t inside a string s.  This is generally solved using the algorithm by <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.knuth_morris_pratt">knuth_morris_pratt</a>.  Our implementation is based on the problem of finding the <a class="reference external" href="http://algorithmsforcontests.blogspot.fr/2012/08/borders-of-string.html">longest border</a> for each prefix of a  given string w., see <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.knuth_morris_pratt">maximum_border_length</a>, which permits also to solve many other problems.   One such application is to compute for a string x the largest power k such that there is a string y, and x is the result of concatenating k copies of y.</p>
 <p>An alternative algorithm for the string matching problem has been given by <a class="reference external" href="https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm">Rabin-Karp</a>, see <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.rabin_karp">rabin_karp</a>.  This algorithm has the advantage of generalizing to searching for multiple strings, or to search patterns in 2-dimensions, or even to find the longest common substring to two given strings.</p>
 <p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Trie">trie</a>, or prefix tree is a data structure storing a set of words, which permits to search for a given word, allowing spelling errors.  This is the data-structure one needs in a spell checker. Our implementation is in <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.trie">trie</a>.</p>
 </div>
@@ -225,52 +235,52 @@ Another polynomial variant of SAT is Horn-SAT, see  <a class="reference external
 <div class="section" id="cycles">
 <h2>Cycles<a class="headerlink" href="#cycles" title="Permalink to this headline">¶</a></h2>
 <p>The library contains implementations of 4 cycle finding algorithms.  The most basic problem consists of finding any cycle in a given undirected graph.  In the second problem we are given an edge weighted graph and want to compute a cycle of minimum total weight. For the third problem we want to minimize the total cycle weight over the cycle length. And in the last problem we want to find a cycle that visits every edge exactly once.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="13%" />
-<col width="5%" />
-<col width="11%" />
-<col width="37%" />
-<col width="34%" />
+<col style="width: 13%" />
+<col style="width: 5%" />
+<col style="width: 11%" />
+<col style="width: 37%" />
+<col style="width: 34%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">problem</th>
-<th class="head">graph</th>
-<th class="head">complexity</th>
-<th class="head">algorithm</th>
-<th class="head">implementation</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>problem</p></th>
+<th class="head"><p>graph</p></th>
+<th class="head"><p>complexity</p></th>
+<th class="head"><p>algorithm</p></th>
+<th class="head"><p>implementation</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>find a cycle</td>
-<td>undirected</td>
-<td><span class="math notranslate nohighlight">\(O(|V| + |E|)\)</span></td>
-<td>depth-first search</td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.dfs">find_cycle</a></td>
+<tbody>
+<tr class="row-even"><td><p>find a cycle</p></td>
+<td><p>undirected</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|V| + |E|)\)</span></p></td>
+<td><p>depth-first search</p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.dfs">find_cycle</a></p></td>
 </tr>
-<tr class="row-odd"><td>shortest cycle</td>
-<td>undirected</td>
-<td><span class="math notranslate nohighlight">\(O(|V|\cdot|E|)\)</span></td>
-<td>breath-first search</td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.shortest_cycle">shortest_cycle</a></td>
+<tr class="row-odd"><td><p>shortest cycle</p></td>
+<td><p>undirected</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|V|\cdot|E|)\)</span></p></td>
+<td><p>breath-first search</p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.shortest_cycle">shortest_cycle</a></p></td>
 </tr>
-<tr class="row-even"><td>minimum weight cycle</td>
-<td>directed</td>
-<td><span class="math notranslate nohighlight">\(O(|V|\cdot |E|)\)</span></td>
-<td><a class="reference external" href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm">Bellman-Ford</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.bellman_ford">bellman_ford</a></td>
+<tr class="row-even"><td><p>minimum weight cycle</p></td>
+<td><p>directed</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|V|\cdot |E|)\)</span></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm">Bellman-Ford</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.bellman_ford">bellman_ford</a></p></td>
 </tr>
-<tr class="row-odd"><td>minimum mean cycle</td>
-<td>directed</td>
-<td><span class="math notranslate nohighlight">\(O(|V|\cdot |E|)\)</span></td>
-<td><a class="reference external" href="http://www.sciencedirect.com/science/article/pii/0012365X78900110">Karp</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.min_mean_cycle">min_mean_cycle</a></td>
+<tr class="row-odd"><td><p>minimum mean cycle</p></td>
+<td><p>directed</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|V|\cdot |E|)\)</span></p></td>
+<td><p><a class="reference external" href="http://www.sciencedirect.com/science/article/pii/0012365X78900110">Karp</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.min_mean_cycle">min_mean_cycle</a></p></td>
 </tr>
-<tr class="row-even"><td>Eulerian cycle</td>
-<td>both</td>
-<td><span class="math notranslate nohighlight">\(O(|V|+|E|)\)</span></td>
-<td><a class="reference external" href="https://en.wikipedia.org/wiki/Eulerian_path">Greedy</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.eulerian_tour">eulerian_tour</a></td>
+<tr class="row-even"><td><p>Eulerian cycle</p></td>
+<td><p>both</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|V|+|E|)\)</span></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Eulerian_path">Greedy</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.eulerian_tour">eulerian_tour</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -278,110 +288,110 @@ Another polynomial variant of SAT is Horn-SAT, see  <a class="reference external
 <div class="section" id="shortest-paths">
 <h2>Shortest paths<a class="headerlink" href="#shortest-paths" title="Permalink to this headline">¶</a></h2>
 <p>Several shortest path algorithms are included in the library, which apply for different classes of graphs.  They are summarized in the following table. For the complexity indication we assume that <span class="math notranslate nohighlight">\(|E|\geq |V|\)</span>.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="14%" />
-<col width="12%" />
-<col width="39%" />
-<col width="35%" />
+<col style="width: 14%" />
+<col style="width: 12%" />
+<col style="width: 39%" />
+<col style="width: 35%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">problem</th>
-<th class="head">complexity</th>
-<th class="head">algorithm</th>
-<th class="head">implementation</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>problem</p></th>
+<th class="head"><p>complexity</p></th>
+<th class="head"><p>algorithm</p></th>
+<th class="head"><p>implementation</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>unweighted graph</td>
-<td><span class="math notranslate nohighlight">\(O(|E|)\)</span></td>
-<td><a class="reference external" href="https://en.wikipedia.org/wiki/Breadth-first_search">breadth-first search</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.bfs">bfs</a></td>
+<tbody>
+<tr class="row-even"><td><p>unweighted graph</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|E|)\)</span></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Breadth-first_search">breadth-first search</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.bfs">bfs</a></p></td>
 </tr>
-<tr class="row-odd"><td>grid</td>
-<td><span class="math notranslate nohighlight">\(O(|E|)\)</span></td>
-<td>breadth-first search adapted to the grid graph</td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.dist_grid">dist_grid</a></td>
+<tr class="row-odd"><td><p>grid</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|E|)\)</span></p></td>
+<td><p>breadth-first search adapted to the grid graph</p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.dist_grid">dist_grid</a></p></td>
 </tr>
-<tr class="row-even"><td>{0,1} weighted graph</td>
-<td><span class="math notranslate nohighlight">\(O(|E|)\)</span></td>
-<td><a class="reference external" href="http://goo.gl/w67Hs1">Dijkstra with a deque</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.graph01">graph01</a></td>
+<tr class="row-even"><td><p>{0,1} weighted graph</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|E|)\)</span></p></td>
+<td><p><a class="reference external" href="http://goo.gl/w67Hs1">Dijkstra with a deque</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.graph01">graph01</a></p></td>
 </tr>
-<tr class="row-odd"><td>non negative weighted graph</td>
-<td><span class="math notranslate nohighlight">\(O(|E| \log |V|)\)</span></td>
-<td><a class="reference external" href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.dijkstra">dijkstra</a></td>
+<tr class="row-odd"><td><p>non negative weighted graph</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|E| \log |V|)\)</span></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.dijkstra">dijkstra</a></p></td>
 </tr>
-<tr class="row-even"><td>arbitrary weighted graph</td>
-<td><span class="math notranslate nohighlight">\(O(|E| \cdot |V|)\)</span></td>
-<td><a class="reference external" href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm">Bellman-Ford</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.bellman_ford">bellman_ford</a></td>
+<tr class="row-even"><td><p>arbitrary weighted graph</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|E| \cdot |V|)\)</span></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm">Bellman-Ford</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.bellman_ford">bellman_ford</a></p></td>
 </tr>
-<tr class="row-odd"><td>all source destination pairs</td>
-<td><span class="math notranslate nohighlight">\(O(|V|^3)\)</span></td>
-<td><a class="reference external" href="https://en.wikipedia.org/wiki/Floyd-Warshall_algorithm">Floyd-Warshall</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.floyd_warshall">floyd_warshall</a></td>
+<tr class="row-odd"><td><p>all source destination pairs</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|V|^3)\)</span></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Floyd-Warshall_algorithm">Floyd-Warshall</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.floyd_warshall">floyd_warshall</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="matching-flows-and-related">
 <h2>Matching, flows and related<a class="headerlink" href="#matching-flows-and-related" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="22%" />
-<col width="12%" />
-<col width="31%" />
-<col width="35%" />
+<col style="width: 22%" />
+<col style="width: 12%" />
+<col style="width: 31%" />
+<col style="width: 35%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">problem</th>
-<th class="head">complexity</th>
-<th class="head">algorithm                                                implementation</th>
-<th class="head">&#160;</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>problem</p></th>
+<th class="head"><p>complexity</p></th>
+<th class="head"><p>algorithm                                                implementation</p></th>
+<th class="head"></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>maximum cardinality bipartite matching</td>
-<td><span class="math notranslate nohighlight">\(O(|E|\cdot|V|)\)</span></td>
-<td><a class="reference external" href="https://goo.gl/lGtp9f">augmenting path algorithm</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.bipartite_matching">bipartite_matching</a></td>
+<tbody>
+<tr class="row-even"><td><p>maximum cardinality bipartite matching</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|E|\cdot|V|)\)</span></p></td>
+<td><p><a class="reference external" href="https://goo.gl/lGtp9f">augmenting path algorithm</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.bipartite_matching">bipartite_matching</a></p></td>
 </tr>
-<tr class="row-odd"><td>minimum bipartite vertex cover</td>
-<td><span class="math notranslate nohighlight">\(O(|E|\cdot|V|)\)</span></td>
-<td><a class="reference external" href="goo.gl/AkBUQH">reduction to matching</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.bipartite_vertex_cover">bipartite_vertex_cover</a></td>
+<tr class="row-odd"><td><p>minimum bipartite vertex cover</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|E|\cdot|V|)\)</span></p></td>
+<td><p><a class="reference external" href="goo.gl/AkBUQH">reduction to matching</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.bipartite_vertex_cover">bipartite_vertex_cover</a></p></td>
 </tr>
-<tr class="row-even"><td>maximum profit bipartite matching</td>
-<td><span class="math notranslate nohighlight">\(O(|U|^2|V|)\)</span></td>
-<td><a class="reference external" href="https://en.wikipedia.org/wiki/Hungarian_algorithm">Hungarian algorithm</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.kuhn_munkres">kuhn_munkres</a></td>
+<tr class="row-even"><td><p>maximum profit bipartite matching</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|U|^2|V|)\)</span></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Hungarian_algorithm">Hungarian algorithm</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.kuhn_munkres">kuhn_munkres</a></p></td>
 </tr>
-<tr class="row-odd"><td>stable bipartite matching</td>
-<td><span class="math notranslate nohighlight">\(O(|V|^2)\)</span></td>
-<td><a class="reference external" href="https://en.wikipedia.org/wiki/Stable_marriage_problem">Gale-Shapley</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.gale_shapley">gale_shapley</a></td>
+<tr class="row-odd"><td><p>stable bipartite matching</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|V|^2)\)</span></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Stable_marriage_problem">Gale-Shapley</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.gale_shapley">gale_shapley</a></p></td>
 </tr>
-<tr class="row-even"><td>max flow capacities in {1,…,C}</td>
-<td><span class="math notranslate nohighlight">\(O(|V|\cdot|E|\cdot|C|)\)</span></td>
-<td><a class="reference external" href="https://en.wikipedia.org/wiki/Ford-Fulkerson_algorithm">Ford-Fulkerson</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.ford_fulkerson">ford_fulkerson</a></td>
+<tr class="row-even"><td><p>max flow capacities in {1,…,C}</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|V|\cdot|E|\cdot|C|)\)</span></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Ford-Fulkerson_algorithm">Ford-Fulkerson</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.ford_fulkerson">ford_fulkerson</a></p></td>
 </tr>
-<tr class="row-odd"><td>max flow arbitrary capacities</td>
-<td><span class="math notranslate nohighlight">\(O(|V|\cdot|E|^2)\)</span></td>
-<td><a class="reference external" href="https://en.wikipedia.org/wiki/Edmonds-Karp_algorithm">Edmonds-Karp</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.edmonds_karp">edmonds_karp</a></td>
+<tr class="row-odd"><td><p>max flow arbitrary capacities</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|V|\cdot|E|^2)\)</span></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Edmonds-Karp_algorithm">Edmonds-Karp</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.edmonds_karp">edmonds_karp</a></p></td>
 </tr>
-<tr class="row-even"><td>max flow arbitrary capacities</td>
-<td><span class="math notranslate nohighlight">\(O(|V|^2\cdot|E|)\)</span></td>
-<td><a class="reference external" href="https://en.wikipedia.org/wiki/Dinic%27s_algorithm">Dinic</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.dinic">dinic</a></td>
+<tr class="row-even"><td><p>max flow arbitrary capacities</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|V|^2\cdot|E|)\)</span></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Dinic%27s_algorithm">Dinic</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.dinic">dinic</a></p></td>
 </tr>
-<tr class="row-odd"><td>minimum paths decomposition of a directed acyclic graph</td>
-<td><span class="math notranslate nohighlight">\(O(|E|\cdot|V|)\)</span></td>
-<td><a class="reference external" href="https://en.wikipedia.org/wiki/Dilworth%27s_theorem">Dilworth</a></td>
-<td><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.dilworth">dilworth</a></td>
+<tr class="row-odd"><td><p>minimum paths decomposition of a directed acyclic graph</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(|E|\cdot|V|)\)</span></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Dilworth%27s_theorem">Dilworth</a></p></td>
+<td><p><a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.dilworth">dilworth</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -397,7 +407,6 @@ Another polynomial variant of SAT is Horn-SAT, see  <a class="reference external
 <p>A simple data structure to store an ordered set allowing insertions and deletions is the <a class="reference external" href="tryalgo/tryalo.html#module-tryalgo.skip_tree">skip tree</a>. The expected cost of an update is <span class="math notranslate nohighlight">\(O(\log n)\)</span>.</p>
 <p>Many problems defined on sets can be solved by dynamic programming. This is the case of the <a class="reference external" href="https://en.wikipedia.org/wiki/Knapsack_problem">Knapsack problem</a>. We are given n items, each has a size and a value, and we wish to find a subset of maximum total value which size does not exceed a given capacity C.  This problem is NP-hard, but can be solved efficiently in time O(nC) if the capacity is bounded by a small value, see <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.knapsack">knapsack</a>.</p>
 <p>In the coin change problem, we are given a collection of coins of n different values and unbounded number of coins for each value and a target value C.  The goal is to find a set of coins of total value C.  Again this problem can be solved by dynamic programming in time O(nC), see <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.subsetsum">subsetsum</a>.  A similar problem is called the <a class="reference external" href="https://en.wikipedia.org/wiki/Subset_sum_problem">subset sum problem</a> and consists of finding a subset out of n given values that sum up to a target value C.  It can be solved with the same method.  When n is small and C large, there is a different algorithm with complexity <span class="math notranslate nohighlight">\(O(n^{\lceil n/2 \rceil})\)</span>, see <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.subsetsum_divide">subsetsum_divide</a>.</p>
-<p>An interesting problem with sets, which has also a connection with intervals graphs, consists in finding a total order on a ground set such that every given subset is consecutive in this ground set. This problem can be solved using <a class="reference external" href="tryalgo/tryalgo.html#module-tryalgo.pq_tree">PQ trees</a>.</p>
 </div>
 <div class="section" id="geometry">
 <h2>Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h2>
@@ -438,8 +447,10 @@ Another polynomial variant of SAT is Horn-SAT, see  <a class="reference external
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="auto_examples/index.html" class="btn btn-neutral float-right" title="Gallery of examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="index.html" class="btn btn-neutral" title="Welcome to tryalgo’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quick start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -448,7 +459,7 @@ Another polynomial variant of SAT is Horn-SAT, see  <a class="reference external
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016-2018, Christoph Dürr and Jill-Jênn Vie
+        &copy; Copyright 2016-2021, Christoph Dürr and Jill-Jênn Vie
 
     </p>
   </div>
@@ -465,26 +476,16 @@ Another polynomial variant of SAT is Horn-SAT, see  <a class="reference external
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

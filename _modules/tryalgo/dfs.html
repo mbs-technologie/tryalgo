@@ -17,32 +17,38 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -84,7 +90,10 @@
             
             
               <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../content.html">Content of the library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">Gallery of examples</a></li>
 </ul>
 
             
@@ -150,8 +159,10 @@
   <h1>Source code for tryalgo.dfs</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="c1"># Depth first search - DFS</span>
-<span class="c1"># jill-jenn vie et christoph durr - 2015-2018</span>
+<span class="sd">&quot;&quot;&quot;\</span>
+<span class="sd">Depth-first search - DFS</span>
+<span class="sd">jill-jênn vie et christoph durr - 2015-2019</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 
 <span class="c1"># snip{ dfs-recursive</span>
@@ -251,12 +262,13 @@
         <span class="k">for</span> <span class="n">i2</span><span class="p">,</span> <span class="n">j2</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">i1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j1</span><span class="p">),</span> <span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">j1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
                        <span class="p">(</span><span class="n">i1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j1</span><span class="p">),</span> <span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">j1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]:</span>
             <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">i2</span> <span class="o">&lt;</span> <span class="n">height</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">j2</span> <span class="o">&lt;</span> <span class="n">width</span> <span class="ow">and</span>
-                <span class="n">grid</span><span class="p">[</span><span class="n">i2</span><span class="p">][</span><span class="n">j2</span><span class="p">]</span> <span class="o">==</span> <span class="n">free</span><span class="p">):</span>
+                    <span class="n">grid</span><span class="p">[</span><span class="n">i2</span><span class="p">][</span><span class="n">j2</span><span class="p">]</span> <span class="o">==</span> <span class="n">free</span><span class="p">):</span>
                 <span class="n">grid</span><span class="p">[</span><span class="n">i2</span><span class="p">][</span><span class="n">j2</span><span class="p">]</span> <span class="o">=</span> <span class="n">mark</span>  <span class="c1"># mark path</span>
                 <span class="n">to_visit</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i2</span><span class="p">,</span> <span class="n">j2</span><span class="p">))</span></div>
 <span class="c1"># snip}</span>
 
 
+<span class="c1"># pylint: disable=too-many-nested-blocks, no-else-return</span>
 <div class="viewcode-block" id="find_cycle"><a class="viewcode-back" href="../../tryalgo/tryalgo.html#tryalgo.dfs.find_cycle">[docs]</a><span class="k">def</span> <span class="nf">find_cycle</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;find a cycle in an undirected graph</span>
 
@@ -276,7 +288,7 @@
                     <span class="k">if</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">prec</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>  <span class="c1"># except arcs to father in DFS tree</span>
                         <span class="k">if</span> <span class="n">prec</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                             <span class="n">cycle</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">]</span>  <span class="c1"># cycle found, (u,v) back edge</span>
-                            <span class="k">while</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">prec</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="ow">and</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">prec</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>  <span class="c1"># directed</span>
+                            <span class="k">while</span> <span class="n">u</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">prec</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">prec</span><span class="p">[</span><span class="n">u</span><span class="p">]):</span>  <span class="c1"># directed</span>
                                 <span class="n">u</span> <span class="o">=</span> <span class="n">prec</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>  <span class="c1"># climb up the tree</span>
                                 <span class="n">cycle</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
                             <span class="k">return</span> <span class="n">cycle</span>
@@ -296,7 +308,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016-2018, Christoph Dürr and Jill-Jênn Vie
+        &copy; Copyright 2016-2021, Christoph Dürr and Jill-Jênn Vie
 
     </p>
   </div>
@@ -313,26 +325,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
